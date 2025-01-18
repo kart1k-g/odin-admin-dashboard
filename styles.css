@@ -3,6 +3,36 @@
     margin: 0px;
     padding: 0px;
 }
+:root{
+    --dashboard-font-size: max(clamp(20px, 3.05vh, 40px), clamp(20px, 1.45vw, 40px));
+    --sidebar-font-size: max(clamp(16px, 2.6vh, 36px), clamp(16px, 1.25vw, 36px));
+    --font-delta: calc(var(--dashboard-font-size) - var(--sidebar-font-size));
+
+    --sidebar-item-min-gap: 16px;
+    --sidebar-item-max-gap: 28px;
+    --dashboard-min-gap: calc( var(--sidebar-item-min-gap) - var(--font-delta) );
+    --dashboard-max-gap: calc( var(--sidebar-item-max-gap) - var(--font-delta) );
+
+    --upper-sidebar-ratio: 1;
+    --middle-sidebar-ratio: 4;
+    --lower-sidebar-ratio: 4;
+
+    --upper-sidebar-unit: 1fr;
+    --middle-sidebar-unit: 4fr;
+    --lower-sidebar-unit: 4fr;
+
+    --upper-sidebar-items: 1;
+    --middle-sidebar-items: 6;
+    --lower-sidebar-items: 3;
+
+    --sidebar-max-width: 350px;
+    /* --sidebar-width-percentage:14%; */
+    --sidebar-width-1:14vw;
+    --sidebar-width-2:25vh;
+
+    --color-1: #a591bf;
+    --color-1-hover: #9582ad;
+}
 
 #outer-container{
     width: 100vw;
@@ -11,9 +41,62 @@
     display: flex;
 }
 #first-container{
-    flex-basis: min(20%, 300px);
-    background-color: brown;
+    flex-basis: min( max(var(--sidebar-width-1), var(--sidebar-width-2)), var(--sidebar-max-width));
+    background-color: var(--color-1);
+
+    display: grid;
+    grid-template-rows: var(--upper-sidebar-unit) var(--middle-sidebar-unit) var(--lower-sidebar-unit);
+
+    padding: 20px 8px 20px 8px;
+
+    & > *{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    & #middle-sidebar{
+        justify-content: space-around;
+    }
+    
+    & #lower-sidebar{
+        justify-content: flex-end;
+        gap: 1.5vh;
+    }
 }
+
+.sidebar-item{
+    display: flex;
+    gap: clamp(var(--sidebar-item-min-gap), 2vw, var(--sidebar-item-max-gap));
+
+    padding: 4px 0 4px 4px;
+    border-radius: 4px;
+}
+.sidebar-item:hover{
+    background-color: var(--color-1-hover);
+}
+.sidebar-item,
+.sidebar-item>*{
+    cursor: pointer;
+}
+
+.sidebar-item>img{
+    width: var(--sidebar-font-size);
+}
+.sidebar-item>button{
+    font-size: var(--sidebar-font-size);
+    border: none;
+    background-color: inherit;
+}
+#dashboard-container{
+    gap: clamp(var(--dashboard-min-gap) , 1.6vw, var(--dashboard-max-gap) );
+}
+#dashboard-container>img{
+    width: var(--dashboard-font-size);
+}
+#dashboard-container>button{
+    font-size: var(--dashboard-font-size);
+}
+
 #second-container{
     flex-grow: 1;
 
