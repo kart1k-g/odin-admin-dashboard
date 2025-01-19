@@ -30,6 +30,17 @@
     --sidebar-width-1:14vw;
     --sidebar-width-2:25vh;
 
+    --first-container-width: min( max(var(--sidebar-width-1), var(--sidebar-width-2)), var(--sidebar-max-width));
+    --second-container-width: 100vw - var(--first-container-width);
+
+    --card-min-width: 360px;
+    --card-horizontal-margin:20px;
+    --card-total-min-width: calc(2 * var(--card-horizontal-margin) + var(--card-min-width));
+
+    --card-height: 300px;
+    --card-vertical-margin: 20px;
+    --card-total-height: calc(2 * var(--card-vertical-margin) + var(--card-height));
+
     --color-1: #a591bf;
     --color-1-hover: #9582ad;
 }
@@ -41,7 +52,7 @@
     display: flex;
 }
 #first-container{
-    flex-basis: min( max(var(--sidebar-width-1), var(--sidebar-width-2)), var(--sidebar-max-width));
+    flex-basis: var(--first-container-width);
     background-color: var(--color-1);
 
     display: grid;
@@ -121,37 +132,53 @@ header{
 }
 
 main{
-    background-color: aqua;
-
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-
-    grid-template-areas: 
-    "cards-container explore-container";
-
+    display: flex;
+    flex-direction: column;
+    
     margin-bottom: auto;
+    position: relative;
 
+    & #fixed{
+        position: sticky;
+        top: 0px;
+        background-color: wheat;
+    }
+    & #scrollable{
+        display: flex;
+    }
 }
+
 #cards-container{
-    grid-area: cards-container;
     background-color: rebeccapurple;
+
+    flex-basis: calc( 7.5 * var(--second-container-width) /10);
     
     display: grid;
-    grid-template-columns: repeat(auto-fill, clamp(350px, 35vw, 400px));
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-total-min-width), 1fr));
+    grid-template-rows: 48px;
+    grid-auto-rows: var(--card-total-height);
 
     justify-content: space-around;
-    align-content: start;
-    align-items: center;
+    
+    & h1{
+        grid-column: 1/-1;
+        margin-left: var(--card-horizontal-margin);
+        align-self: center;
+    }
 
-    & .items{
-        height: 300px;
+    & .card{
         background-color: gray;
-        outline: 1px solid red;
         margin: 20px;
+    }
+
+    & .card:last-child{
+        border: 4px dashed blue;
+        
     }
 }
 #explore-container{
-    grid-area: explore-container;
+    flex-basis: calc(2.5 * var(--second-container-width) /10);
+
     background-color: gold;
 
     & .items-2{
@@ -164,4 +191,14 @@ footer{
     background-color: black;
     flex-shrink: 0;
     height: 44px;
+}
+
+@media screen and (max-width: 900px) {
+    #scrollable{
+        flex-wrap: wrap;
+    }
+    #cards-container{
+        order: 1;
+        --card-total-min-width: calc(var(--second-container-width) - 20px);
+    }
 }
