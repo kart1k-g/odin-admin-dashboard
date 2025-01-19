@@ -26,7 +26,6 @@
     --lower-sidebar-items: 3;
 
     --sidebar-max-width: 350px;
-    /* --sidebar-width-percentage:14%; */
     --sidebar-width-1:14vw;
     --sidebar-width-2:25vh;
 
@@ -41,11 +40,26 @@
     --card-vertical-margin: 20px;
     --card-total-height: calc(2 * var(--card-vertical-margin) + var(--card-height));
 
+    --nav-height: 64px;
+    --nav-font-size: 24px;
+    --nav-horizontal-padding:28px;
+    --nav-gap: 8px;
+    --nav-img-height: 32px;
+    --nav-logo-height: 48px;
+    --header-btn-height: calc(2 * var(--sidebar-font-size));
+    --header-btn-width: calc(4 * var(--sidebar-font-size));
+    --header-img-height: calc(3 * var(--sidebar-font-size));
+
+    /* --font-size-1: clamp(24px, 3.5vh, 52px); */
+
     --color-1: #a591bf;
     --color-1-hover: #9582ad;
+    --color-2: #52485f;
+    /* --color-2: #d79366; */
 }
 
 #outer-container{
+    display: flex;
     width: 100vw;
     height: 100vh;
 
@@ -114,21 +128,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: scroll;
-}
-header{
-    background-color: wheat;
-    flex-shrink: 0;
-    min-height: clamp(100px ,18vh, 180px);
-
-    position: sticky;
-    top: 0px;
-}
-#header-row-1{
-    display: flex;
-}
-#header-row-2{
-    display: flex;
+    overflow-y: scroll;
 }
 
 main{
@@ -137,20 +137,108 @@ main{
     
     margin-bottom: auto;
     position: relative;
+}
 
-    & #fixed{
-        position: sticky;
-        top: 0px;
-        background-color: wheat;
-    }
-    & #scrollable{
-        display: flex;
-    }
+nav,
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-2);
+}
+
+nav{
+    /* min-height: clamp(36px, 7vh, 80px); */
+    min-height: var(--nav-height);
+    padding: 0px var(--nav-horizontal-padding);
+    /* font-size: var(--sidebar-font-size); */
+    font-size: var(--nav-font-size);
+}
+
+nav .left{    
+    display: flex;
+    gap: var(--nav-gap);
+    
+    position: relative;
+    align-items: center;
+}
+nav input{
+    font-size: inherit;
+    width: 50vw;
+    border: none;
+    border-radius: 18px;
+
+    padding: 4px 4px 4px 40px;
+}
+#search{
+    position: absolute;
+    /* top: calc(0.5 * var(--font-size-1) ); */
+    top: 16px;
+    left: 4px;
+}
+nav .right{
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+}
+nav img{
+    /* height: var(--font-size-1); */
+    height: var(--nav-img-height);
+}
+#logo{
+    /* height: clamp(32px, 5vh, 60px); */
+    height: var(--nav-logo-height);
+    padding: 2px;
+    border-radius: 100%;
+    background-color: #fff;
+}
+
+
+header{
+    position: sticky;
+    top: 0px;
+    
+    min-height: calc(4 * var(--sidebar-font-size));
+    padding: 0px var(--nav-horizontal-padding);
+    
+    align-items: center;
+    font-size: var(--dashboard-font-size);
+}
+header .left{
+    display: flex;
+    gap: 8px;
+}
+header .right{
+    display: flex;
+    gap: 8px;
+}
+#greeting{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+header button{
+    font-size: var(--sidebar-font-size);
+    height: var(--header-btn-height);
+    width: var(--header-btn-width);
+    /* padding: 8px 12px; */
+    border: none;
+    border-radius: 48px;
+}
+header img{
+    height: var(--header-img-height);
+    /* height: clamp(42px, 7vh, 64px); */
+    padding: 2px;
+    border-radius: 100%;
+    background-color: #fff;
+}
+
+#scrollable{
+    display: flex;
 }
 
 #cards-container{
     background-color: rebeccapurple;
-
+    
     flex-basis: calc( 7.5 * var(--second-container-width) /10);
     
     display: grid;
