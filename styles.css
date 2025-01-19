@@ -160,7 +160,7 @@ main{
 
     justify-content: space-around;
     
-    & h1{
+    & >h1{
         grid-column: 1/-1;
         margin-left: var(--card-horizontal-margin);
         align-self: center;
