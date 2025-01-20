@@ -13,8 +13,36 @@ function generateCards(containerId){
         description.classList.add("card-description");
         description.textContent=generateLoremIpsum(20);
 
-        card.appendChild(heading);
-        card.appendChild(description);
+        const upperCard=document.createElement("div");
+        upperCard.classList.add("upper-card");
+        
+        upperCard.appendChild(heading);
+        upperCard.appendChild(description);
+        
+        const lowerCard=document.createElement("div");
+        lowerCard.classList.add("lower-card");
+
+        const view=document.createElement("img");
+        view.id="view-icon";
+        view.classList.add("card-icon");
+        view.src="./imgs/view.svg";
+        
+        const share=document.createElement("img");
+        share.id="share-icon";
+        share.classList.add("card-icon");
+        share.src="./imgs/share.svg";
+        
+        const favourite=document.createElement("img");
+        favourite.id="favourite-icon";
+        favourite.classList.add("card-icon");
+        favourite.src="./imgs/favourite.svg";
+
+        lowerCard.appendChild(favourite);
+        lowerCard.appendChild(view);
+        lowerCard.appendChild(share);
+
+        card.appendChild(upperCard);
+        card.appendChild(lowerCard);
 
         cardsContainer.appendChild(card);
     });
@@ -28,14 +56,18 @@ function getLastCard(){
 
     const heading=document.createElement("h1");
     heading.classList.add("card-heading");
-    heading.textContent="Add";
+    heading.textContent="Create";
 
     const img=document.createElement("img");
     img.classList.add("card-img");
     img.src="./imgs/add.svg";
 
+    const cardImgContainer=document.createElement("div");
+    cardImgContainer.classList.add("card-img-container");
+    cardImgContainer.appendChild(img);
+
+    card.appendChild(cardImgContainer);
     card.appendChild(heading);
-    card.appendChild(img);
 
     return card;
 }
