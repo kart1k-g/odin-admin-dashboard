@@ -87,24 +87,92 @@ function generateLoremIpsum(wordCount) {
   
     return result.join(" ") + ".";
 }
+
+function generateAnnouncements(containerId){
+    const announcementContainer=document.querySelector(`#${containerId}`);
+
+    announcementInfo.forEach((info)=>{
+        const announcement=document.createElement("div");
+        announcement.classList.add("announcement");
+        announcement.id=info[0];
+
+        const heading=document.createElement("h1");
+        heading.textContent=info[1];
+
+        const description=document.createElement("p");
+        description.textContent=generateLoremIpsum(20);
+
+        announcement.appendChild(heading);
+        announcement.appendChild(description);
+
+        announcementContainer.appendChild(announcement);
+    });
+}
+
+function generateTrending(containerId){
+    const trendingContainer=document.querySelector(`#${containerId}`);
+    
+    trendingInfo.forEach((info)=>{
+        const trending=document.createElement("div");
+        trending.classList.add("trending");
+        trending.id=info[0];
+    
+        const img=document.createElement("img");
+        img.classList.add("trending-img");
+        img.src=info[3];
+
+        const trendingText=document.createElement("div");
+        trendingText.classList.add("trending-text");
+
+        const trendingUser=document.createElement("span");
+        trendingUser.classList.add("trending-user");
+        trendingUser.textContent=info[1];
+
+        const trendingProject=document.createElement("span");
+        trendingProject.classList.add("trending-project");
+        trendingProject.textContent=info[2];
+
+        trendingText.appendChild(trendingUser);
+        trendingText.appendChild(trendingProject);
+
+        trending.appendChild(img);
+        trending.appendChild(trendingText);
+    
+        trendingContainer.appendChild(trending);
+    });
+
+}
   
 function initialiseVariables(){
     cardsInfo=[
         // id heading 
-        ["card-1", "Card One"],
-        ["card-2", "Card Two"],
-        ["card-3", "Card Three"],
-        ["card-4", "Card Four"],
-        ["card-5", "Card Five"],
-        ["card-6", "Card Six"],
-        ["card-7", "Card Seven"],
+        ["card-1", "Super Cool Project"],
+        ["card-2", "Less Cool Project"],
+        ["card-3", "Impossible App"],
+        ["card-4", "Easy Peasy App"],
+        ["card-5", "Ad Blocker"],
+        ["card-6", "Money Maker"],
+        ["card-7", "Etch a Sketch"],
+    ];
+    announcementInfo=[
+        ["announcement-1", "Site Maintenance"],
+        ["announcement-2", "Community Share Day"],
+        ["announcement-3", "Updated Privacy Policy"],
+    ];
+    trendingInfo=[
+        //id username latest-project avatar-img
+        ["trending-1", "@gunjan", "World Peace Builder", "./imgs/avatar-3.jpg"],
+        ["trending-2", "@asmit", "Super Cool Project", "./imgs/avatar-2.jpg"],
+        ["trending-3", "@amiruddin", "Life Changing App", "./imgs/avatar-4.jpg"],
+        ["trending-4", "@kanishk", "No Traffic Maker", "./imgs/avatar-5.jpg"],
     ];
 }
 
 function initialise(){
     initialiseVariables();
     generateCards("cards-container");
-    console.log("hi");
+    generateAnnouncements("announcements-container");
+    generateTrending("trending-container");
 }
 
 let cardsInfo;

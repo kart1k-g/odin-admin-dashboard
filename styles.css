@@ -336,16 +336,57 @@ header img{
     flex-basis: clamp(180px, 40vw, 250px);
     flex-grow: 1;
 }
-#explore-container .items-2{
-    height: 500px;
+#explore-container > div>div{
     background-color: #fff;
-    /* margin: 20px; */
+    padding: 20px 4% 52px 4%;
 }
 
 #explore-container h1{
     font-size: var(--scrollable-heading-font-size);
     margin-bottom: 16px;
 }
+
+#announcements-container > div+div{
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #000;
+
+}
+#announcements-container h1{
+    font-size: 20px;
+}
+#announcements-container p{
+    font-size: 14px;
+    max-width: 50ch;
+}
+
+#trending-container> div+div{
+    margin-top: 12px;
+}
+
+.trending{
+    display: flex;
+    gap: 16px;
+}
+
+.trending-img{
+    width: 48px;
+    border-radius: 48px;
+    padding: 2px;
+    background-color: var(--color-3);
+}
+
+.trending-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.trending-user{
+    font-weight: 600;
+}
+
 footer{
     background-color: black;
     flex-shrink: 0;
