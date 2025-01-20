@@ -61,6 +61,8 @@
     --color-3: #d79366;
     /* --color-4: #485e5f; */
     --color-4: #648485;
+    --color-5: #302539;
+
 }
 
 #outer-container{
@@ -135,7 +137,7 @@
     flex-direction: column;
     justify-content: space-between;
     overflow-y: scroll;
-    background-color: var(--color-4);
+    background-color: var(--color-2);
 }
 
 main{
@@ -388,9 +390,12 @@ header img{
 }
 
 footer{
-    background-color: black;
+    background-color: var(--color-5);
     flex-shrink: 0;
-    height: 44px;
+    color: aliceblue;
+    font-size: var(--dashboard-font-size);
+    text-align: center;
+    padding: 8px 0 2px 0;
 }
 
 @media screen and (max-width: 900px) {
