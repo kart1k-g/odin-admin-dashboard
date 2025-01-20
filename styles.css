@@ -53,6 +53,8 @@
 
     /* --font-size-1: clamp(24px, 3.5vh, 52px); */
 
+    --scrollable-heading-font-size: 32px;
+
     --color-1: #a591bf;
     --color-1-hover: #9582ad;
     --color-2: #52485f;
@@ -133,6 +135,7 @@
     flex-direction: column;
     justify-content: space-between;
     overflow-y: scroll;
+    background-color: var(--color-4);
 }
 
 main{
@@ -255,10 +258,7 @@ header img{
     display: flex;
 }
 
-#cards-container{
-    /* background-color: #52485f; */
-    background-color: var(--color-4);
-    
+#cards-container{    
     flex-basis: calc( 7.5 * var(--second-container-width) /10);
     
     display: grid;
@@ -273,7 +273,7 @@ header img{
     margin-left: var(--card-horizontal-margin);
     align-self: center;
     /* font-size: var(--dashboard-font-size); */
-    font-size: 36px;
+    font-size: var(--scrollable-heading-font-size);
 }
 .card{
     background-color: #fff;
@@ -325,15 +325,26 @@ header img{
 #explore-container{
     flex-basis: calc(2.5 * var(--second-container-width) /10);
 
-    /* background-color: gold; */
-    background-color: var(--color-4);
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-content: start;
 
-    & .items-2{
-        height: 500px;
-        /* background-color: violet; */
-        background-color: #fff;
-        margin: 20px;
-    }
+    padding: 20px;
+}
+#explore-container >div{
+    flex-basis: clamp(180px, 40vw, 250px);
+    flex-grow: 1;
+}
+#explore-container .items-2{
+    height: 500px;
+    background-color: #fff;
+    /* margin: 20px; */
+}
+
+#explore-container h1{
+    font-size: var(--scrollable-heading-font-size);
+    margin-bottom: 16px;
 }
 footer{
     background-color: black;
