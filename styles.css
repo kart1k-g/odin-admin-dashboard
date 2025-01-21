@@ -65,12 +65,21 @@
 
 }
 
+img{
+    user-select: none;
+}
+p,
+span{
+    line-height: 1.5;
+}
+
 #outer-container{
     display: flex;
     width: 100vw;
     height: 100vh;
 
     display: flex;
+    user-select: none;
 }
 #first-container{
     /* flex-basis: max(var(--first-container-width), 52px); */
@@ -237,6 +246,8 @@ header .right{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    user-select: text;
 }
 header button{
     font-size: var(--sidebar-font-size);
@@ -263,6 +274,7 @@ header img{
 
 #scrollable{
     display: flex;
+    user-select: text;
 }
 
 #cards-container{    
@@ -297,7 +309,7 @@ header img{
     transition: 0.3s ease-in ;
 }
 #last-card{
-    border: 4px dashed blue;   
+    border: 4px dashed var(--color-3);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -391,6 +403,7 @@ header img{
     border-radius: 48px;
     padding: 2px;
     background-color: var(--color-3);
+    cursor: pointer;
 }
 
 .trending-text{
@@ -402,6 +415,7 @@ header img{
 
 .trending-user{
     font-weight: 600;
+    cursor: pointer;
 }
 
 footer{
@@ -468,4 +482,16 @@ footer{
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
     background: var(--color-1-hover);
+}
+
+/* Change selected text color and background */
+::selection {
+    color: white; /* Text color */
+    background-color: #0078d7; /* Background color */
+}
+
+/* For Firefox, use the specific pseudo-element */
+::-moz-selection {
+    color: white;
+    background-color: #0078d7;
 }
