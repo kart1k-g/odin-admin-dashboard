@@ -188,6 +188,9 @@ nav input{
 
     padding: 4px 4px 4px 40px;
 }
+nav input:focus-visible{
+    outline: 3px solid var(--color-5);
+}
 #search{
     position: absolute;
     /* top: calc(0.5 * var(--font-size-1) ); */
