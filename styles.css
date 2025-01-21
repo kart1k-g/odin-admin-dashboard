@@ -218,6 +218,7 @@ header{
 
     box-shadow: 0px 10px 15px -4px black ;
     /* box-shadow: 0px 10px 15px -4px var(--color-1-hover) ; */
+    z-index: 1;
 }
 header .left{
     display: flex;
@@ -291,6 +292,8 @@ header img{
     justify-content: space-between;
 
     box-shadow: -10px 10px 15px -4px black ;
+
+    transition: 0.3s ease-in ;
 }
 #last-card{
     border: 4px dashed blue;   
@@ -328,6 +331,10 @@ header img{
 #last-card h1{
     margin: 16px 0px 0px 0px;
     text-align: center;
+}
+
+.card:hover{
+    transform: translate(0px, -4px);
 }
 
 #explore-container{
