@@ -60,7 +60,7 @@
     --color-2: #52485f;
     --color-3: #d79366;
     /* --color-4: #485e5f; */
-    --color-4: #648485;
+    --color-4: aliceblue;
     --color-5: #302539;
 
 }
@@ -187,6 +187,9 @@ nav input{
     border-radius: 18px;
 
     padding: 4px 4px 4px 40px;
+
+    background-color: var(--color-4);
+    color: var(--color-5);
 }
 nav input:focus-visible{
     outline: 3px solid var(--color-5);
@@ -260,6 +263,12 @@ header button{
     border: none;
     border-radius: 48px;
     cursor: pointer;
+    color: var(--color-5);
+
+}
+header button:hover{
+    background-color: var(--color-5);
+    color: var(--color-4);
 }
 header img{
     height: var(--header-img-height);
@@ -299,7 +308,7 @@ header img{
     font-size: var(--scrollable-heading-font-size);
 }
 .card{
-    background-color: #fff;
+    background-color: var(--color-4);
     margin: 20px;
     padding: 32px 16px;
 
@@ -310,6 +319,8 @@ header img{
     box-shadow: -10px 10px 15px -4px black ;
 
     transition: 0.3s ease-in ;
+
+    color: var(--color-5);
 }
 #last-card{
     border: 4px dashed var(--color-3);
@@ -368,7 +379,8 @@ header img{
     flex-grow: 1;
 }
 #explore-container > div>div{
-    background-color: #fff;
+    background-color: var(--color-4);
+    color: var(--color-5);
     padding: 20px 4% 52px 4%;
     box-shadow: -6px 12px 15px -4px black ;
 }
@@ -424,7 +436,7 @@ header img{
 footer{
     background-color: var(--color-5);
     flex-shrink: 0;
-    color: aliceblue;
+    color: var(--color-4);
     font-size: var(--dashboard-font-size);
     text-align: center;
     padding: 8px 0 2px 0;
