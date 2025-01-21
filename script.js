@@ -142,6 +142,37 @@ function generateTrending(containerId){
     });
 
 }
+
+function handleScroll(){
+    if(isScrollingUp()){
+        showNavOnUpScroll();
+    }else{
+        hideNavOnDownScroll();
+    }
+}
+
+function isScrollingUp(){
+    const newScrollY=document.querySelector("#second-container").scrollTop;
+    const result=newScrollY<oldScrollY;
+    oldScrollY=newScrollY;
+    return result;
+}
+
+function showNavOnUpScroll(){
+    const nav=document.querySelector("nav");
+    const header=document.querySelector("header");
+
+    nav.classList.add("show-nav");
+    header.classList.add("show-header");
+}
+
+function hideNavOnDownScroll(){
+    const nav=document.querySelector("nav");
+    const header=document.querySelector("header");
+    
+    nav.classList.remove("show-nav");
+    header.classList.remove("show-header");
+}
   
 function initialiseVariables(){
     cardsInfo=[
@@ -166,6 +197,9 @@ function initialiseVariables(){
         ["trending-3", "@amiruddin", "Life Changing App", "./imgs/avatar-4.jpg"],
         ["trending-4", "@kanishk", "No Traffic Maker", "./imgs/avatar-5.jpg"],
     ];
+
+    // oldScrollY=window.scrollY;
+    oldScrollY=document.querySelector("#second-container").scrollTop;
 }
 
 function initialise(){
@@ -173,8 +207,13 @@ function initialise(){
     generateCards("cards-container");
     generateAnnouncements("announcements-container");
     generateTrending("trending-container");
+
+    document.querySelector("#second-container").addEventListener("scroll", handleScroll);
 }
 
-let cardsInfo;
+let cardsInfo,
+    announcementInfo,
+    trendingInfo,
+    oldScrollY;
 window.addEventListener("load",initialise);
 // 1920 x 920

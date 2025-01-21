@@ -217,7 +217,7 @@ header{
     flex-wrap: wrap;
     /* gap: 8px; */
 
-    box-shadow: 0px 10px 15px -4px black ;
+    box-shadow: 0px 10px 10px -4px black ;
     /* box-shadow: 0px 10px 15px -4px var(--color-1-hover) ; */
     z-index: 1;
 }
@@ -411,6 +411,15 @@ footer{
     font-size: var(--dashboard-font-size);
     text-align: center;
     padding: 8px 0 2px 0;
+}
+
+.show-nav{
+    position: sticky;
+    top: -1px;
+    z-index: 1;
+}
+.show-header{
+    top: calc(var(--nav-height) - 2px);
 }
 
 @media screen and (max-width: 900px) {
