@@ -215,6 +215,9 @@ header{
 
     flex-wrap: wrap;
     /* gap: 8px; */
+
+    box-shadow: 0px 10px 15px -4px black ;
+    /* box-shadow: 0px 10px 15px -4px var(--color-1-hover) ; */
 }
 header .left{
     display: flex;
@@ -273,6 +276,7 @@ header img{
 #cards-container>h1{
     grid-column: 1/-1;
     margin-left: var(--card-horizontal-margin);
+    margin-top: 12px;
     align-self: center;
     /* font-size: var(--dashboard-font-size); */
     font-size: var(--scrollable-heading-font-size);
@@ -285,6 +289,8 @@ header img{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    box-shadow: -10px 10px 15px -4px black ;
 }
 #last-card{
     border: 4px dashed blue;   
@@ -341,6 +347,7 @@ header img{
 #explore-container > div>div{
     background-color: #fff;
     padding: 20px 4% 52px 4%;
+    box-shadow: -6px 12px 15px -4px black ;
 }
 
 #explore-container h1{
